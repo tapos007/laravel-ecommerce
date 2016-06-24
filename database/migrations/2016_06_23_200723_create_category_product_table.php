@@ -8,8 +8,10 @@ class CreateCategoryProductTable extends Migration {
 	public function up()
 	{
 		Schema::create('category_product', function(Blueprint $table) {
-			$table->integer('category_id')->primary()->unsigned();
-			$table->integer('product_id')->primary()->unsigned();
+			$table->integer('category_id')->unsigned();
+			$table->integer('product_id')->unsigned();
+			$table->primary(['category_id', 'product_id']);
+
 		});
 	}
 
