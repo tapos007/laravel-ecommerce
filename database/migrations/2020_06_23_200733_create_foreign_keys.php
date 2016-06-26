@@ -28,6 +28,18 @@ class CreateForeignKeys extends Migration {
 						->onDelete('cascade')
 						->onUpdate('restrict');
 		});
+
+
+		Schema::table('file_product', function(Blueprint $table) {
+			$table->foreign('product_id')->references('id')->on('products')
+				->onDelete('cascade')
+				->onUpdate('restrict');
+		});
+		Schema::table('file_product', function(Blueprint $table) {
+			$table->foreign('file_id')->references('id')->on('files')
+				->onDelete('cascade')
+				->onUpdate('restrict');
+		});
 	}
 
 	public function down()
@@ -43,6 +55,13 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('product_tag', function(Blueprint $table) {
 			$table->dropForeign('product_tag_tag_id_foreign');
+		});
+
+		Schema::table('file_product', function(Blueprint $table) {
+			$table->dropForeign('file_product_product_id_foreign');
+		});
+		Schema::table('file_product', function(Blueprint $table) {
+			$table->dropForeign('file_product_file_id_foreign');
 		});
 	}
 }

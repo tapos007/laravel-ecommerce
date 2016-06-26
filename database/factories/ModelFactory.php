@@ -32,3 +32,32 @@ $factory->defineAs(App\Category::class, 'subcategory', function ($faker) use ($f
 
     return array_merge($category,['parent_id'=>App\Category::where('parent_id',0)->get()->pluck('id')->random(1)]);
 });
+
+
+$factory->define(App\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->unique()->word,
+    ];
+});
+
+
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->unique()->sentence(5),
+        'description' => $faker->text(),
+        'buying_price' => $faker->randomNumber(2),
+        'sell_price' => $faker->randomNumber(3),
+        'stock' => $faker->text(),
+        'active' => $faker->randomElement([0,1]),
+
+    ];
+});
+
+$factory->define(App\File::class, function (Faker\Generator $faker) {
+    return [
+        'thurm_url' => $faker->image(public_path('images/thurms'), 270, 350, 'fashion'),
+        'full_url' => $faker->image(public_path('images/full_image'), 590, 885, 'fashion')
+
+    ];
+});
+

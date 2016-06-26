@@ -14,4 +14,21 @@ class Product extends Model {
 
 	protected $dates = ['deleted_at'];
 
+	/**
+	 * product has many tags
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+	public function tags()
+	{
+		return $this->belongsToMany(Tag::class,'product_tag');
+	}
+
+	public function categories()
+	{
+		return $this->belongsToMany(Category::class,'category_product');
+	}
+	public function files()
+	{
+		return $this->belongsToMany(File::class,'file_product');
+	}
 }

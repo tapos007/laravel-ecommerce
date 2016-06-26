@@ -14,9 +14,10 @@ class CreateProductsTable extends Migration {
 			$table->float('buying_price');
 			$table->float('sell_price');
 			$table->tinyInteger('active')->default('1');
+			$table->integer('stock');
 			$table->timestamps();
 			$table->softDeletes();
-			$table->integer('stock');
+
 		});
 	}
 
