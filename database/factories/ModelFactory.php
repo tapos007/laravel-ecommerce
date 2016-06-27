@@ -53,11 +53,4 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\File::class, function (Faker\Generator $faker) {
-    return [
-        'thurm_url' => $faker->image(public_path('images/thurms'), 270, 350, 'fashion'),
-        'full_url' => $faker->image(public_path('images/full_image'), 590, 885, 'fashion')
-
-    ];
-});
 
