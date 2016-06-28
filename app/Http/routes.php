@@ -12,3 +12,10 @@
 */
 
 Route::get('/', 'ShopController@index');
+Route::group(['prefix' => 'shop'], function()
+{
+    // Controllers Within The "App\Http\Controllers\Admin" Namespace
+
+    Route::get('/featured', ['as' => 'shop.featured','uses' =>'ShopController@featured']);
+    Route::get('/product', ['as' => 'shop.products','uses' =>'ShopController@products']);
+});
