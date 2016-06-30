@@ -1,139 +1,13 @@
 @extends('frontend.master')
 
 @section('content')
+
     <div id="maincontainer">
         <section id="product">
             <div class="container">
-                <!--  breadcrumb -->
-                <ul class="breadcrumb">
-                    <li>
-                        <a href="#">Home</a>
-                        <span class="divider">/</span>
-                    </li>
-                    <li class="active">Category</li>
-                </ul>
-                <div class="row">
-                    <!-- Sidebar Start-->
-                    <aside class="col-lg-3">
-                        <!-- Category-->
-                        <div class="sidewidt">
-                            <h2 class="heading2"><span>Categories</span></h2>
-                            <ul class="nav nav-list categories">
-                                <li>
-                                    <a href="category.html">Men Accessories</a>
-                                    <ul>
-                                        <li>
-                                            <a href="category.html">Women Accessories</a>
 
-                                        </li>
-                                        <li>
-                                            <a href="category.html">Computers </a>
-                                        </li>
-                                        <li>
-                                            <a href="category.html">Home and Furniture</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="category.html">Women Accessories</a>
-                                    <ul>
-                                        <li>
-                                            <a href="category.html">Women Accessories</a>
-                                        </li>
-                                        <li>
-                                            <a href="category.html">Computers </a>
-                                        </li>
-                                        <li>
-                                            <a href="category.html">Home and Furniture</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="category.html">Computers </a>
-                                    <ul>
-                                        <li>
-                                            <a href="category.html">Women Accessories</a>
-                                        </li>
-                                        <li>
-                                            <a href="category.html">Computers </a>
-                                        </li>
-                                        <li>
-                                            <a href="category.html">Home and Furniture</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="category.html">Home and Furniture</a>
-                                </li>
-                                <li>
-                                    <a href="category.html">Others</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--  Best Seller -->
-                        <div class="sidewidt">
-                            <h2 class="heading2"><span>Best Seller</span></h2>
-                            <ul class="bestseller">
-                                <li>
-                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                                    <a class="productname" href="product.html"> Product Name</a>
-                                    <span class="procategory">Women Accessories</span>
-                                    <span class="price">$250</span>
-                                </li>
-                                <li>
-                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                                    <a class="productname" href="product.html"> Product Name</a>
-                                    <span class="procategory">Electronics</span>
-                                    <span class="price">$250</span>
-                                </li>
-                                <li>
-                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                                    <a class="productname" href="product.html"> Product Name</a>
-                                    <span class="procategory">Electronics</span>
-                                    <span class="price">$250</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Latest Product -->
-                        <div class="sidewidt">
-                            <h2 class="heading2"><span>Latest Products</span></h2>
-                            <ul class="bestseller">
-                                <li>
-                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                                    <a class="productname" href="product.html"> Product Name</a>
-                                    <span class="procategory">Women Accessories</span>
-                                    <span class="price">$250</span>
-                                </li>
-                                <li>
-                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                                    <a class="productname" href="product.html"> Product Name</a>
-                                    <span class="procategory">Electronics</span>
-                                    <span class="price">$250</span>
-                                </li>
-                                <li>
-                                    <img width="50" height="50" src="img/prodcut-40x40.jpg" alt="product" title="product">
-                                    <a class="productname" href="product.html"> Product Name</a>
-                                    <span class="procategory">Electronics</span>
-                                    <span class="price">$250</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--  Must have -->
-                        <div class="sidewidt">
-                            <h2 class="heading2"><span>Must have</span></h2>
-                            <div class="flexslider" id="mainslider">
-                                <ul class="slides">
-                                    <li>
-                                        <img src="img/product1.jpg" alt="" />
-                                    </li>
-                                    <li>
-                                        <img src="img/product2.jpg" alt="" />
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
-                    <!-- Sidebar End-->
+                <div class="row">
+                    @include('partials.category')
                     <!-- Category-->
                     <div class="col-lg-9">
                         <!-- Category Products-->
@@ -142,23 +16,11 @@
                             <div class="sorting well">
                                 <form class=" form-inline pull-left">
                                     Sort By :
-                                    <select>
-                                        <option>Default</option>
-                                        <option>Name</option>
-                                        <option>Pirce</option>
-                                        <option>Rating </option>
-                                        <option>Color</option>
-                                    </select>
+                                    {!! Form::select('filter', ['title' => 'Title', 'sell_price' => 'Price'], \Illuminate\Support\Facades\Request::input('filter'), ['placeholder' => 'Pick a size...','id'=>"changeFilter"]) !!}
+
                                     &nbsp;&nbsp;
                                     Show:
-                                    <select id="changeNumberOfProduct">
-                                        <option>5</option>
-                                        <option>10</option>
-                                        <option>12</option>
-                                        <option>20</option>
-                                        <option>25</option>
-                                        <option>30</option>
-                                    </select>
+                                    {!! Form::select('limit',[ 6 => 6, 12 => 12, 18 => 18, 24 => 24,  30 => 30], \Illuminate\Support\Facades\Request::input('limit'), ['placeholder' => 'Pick a size...','id'=>"changeNumberOfProduct"]) !!}
                                 </form>
                                 <div class="btn-group pull-right">
                                     <button class="btn" id="list"><i class="icon-th-list"></i>
@@ -174,15 +36,16 @@
                                             <li class="col-lg-4 col-sm-6">
                                                 <a class="prdocutname" href="product.html">{{$product->title}}</a>
                                                 <div class="thumbnail">
-                                                    <a href="#"><img  alt="{{$product->title}}"
-                                                                      src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
+                                                    <a href="#"><img alt="{{$product->title}}"
+                                                                     src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
                                                     <div class="shortlinks">
                                                         <a class="details" href="#">DETAILS</a>
                                                         <a class="wishlist" href="#">WISHLIST</a>
                                                         <a class="compare" href="#">COMPARE</a>
                                                     </div>
                                                     <div class="pricetag">
-                                                        <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+                                                        <span class="spiral"></span><a href="#" class="productcart">ADD
+                                                            TO CART</a>
                                                         <div class="price">
                                                             <div class="pricenew">${{$product->sell_price}}</div>
                                                             <div class="priceold"></div>
@@ -201,20 +64,31 @@
                                                 <div class="thumbnail">
                                                     <div class="row">
                                                         <div class="col-lg-4 col-sm-4">
-                                                            <span class="offer tooltip-test" >Offer</span>
-                                                            <a href="#"><img  alt="{{$product->title}}"
-                                                                              src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
+                                                            <span class="offer tooltip-test">Offer</span>
+                                                            <a href="#"><img alt="{{$product->title}}"
+                                                                             src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
                                                         </div>
                                                         <div class="col-lg-8 col-sm-8">
-                                                            <a class="prdocutname" href="product.html">{{$product->title}}</a>
-                                                            <div class="productdiscrption"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.<br>
+                                                            <a class="prdocutname"
+                                                               href="product.html">{{$product->title}}</a>
+                                                            <div class="productdiscrption"> Lorem Ipsum is simply dummy
+                                                                text of the printing and typesetting industry. Lorem
+                                                                Ipsum has been the industry's standard.<br>
                                                                 <br>
-                                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.
-                                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stan </div>
+                                                                Lorem Ipsum is simply dummy text of the printing and
+                                                                typesetting industry. Lorem Ipsum has been the
+                                                                industry's standard.
+                                                                Lorem Ipsum is simply dummy text of the printing and
+                                                                typesetting industry. Lorem Ipsum has been the
+                                                                industry's stan
+                                                            </div>
                                                             <div class="pricetag">
-                                                                <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
+                                                                <span class="spiral"></span><a href="#"
+                                                                                               class="productcart">ADD
+                                                                    TO CART</a>
                                                                 <div class="price">
-                                                                    <div class="pricenew">${{$product->sell_price}}</div>
+                                                                    <div class="pricenew">
+                                                                        ${{$product->sell_price}}</div>
                                                                     <div class="priceold"></div>
                                                                 </div>
                                                             </div>
@@ -247,16 +121,34 @@
 @section('custom_js')
     <script>
         $(document).ready(function () {
-           $("#changeNumberOfProduct").on('change',function () {
-              var numberOfItems = $(this).val();
+            $("#changeNumberOfProduct").on('change', function () {
+                var numberOfItems = $(this).val();
+                var info = "{{ Request::url() }}?";
 
-               var info = "{{ Request::url() }}?limit="+numberOfItems+"&page={{$latestProduct->currentPage()}}";
-               window.location.href = info;
-               console.log(info);
-           //     location.href = info;
-           //    location.reload();
-           });
+
+                info += 'limit=' + numberOfItems;
+
+                @if(app('request')->input('filter'))
+                        info += '&filter={{ app('request')->input('filter')}}';
+                @endif
+                        info += "&page={{$latestProduct->currentPage()}}";
+                window.location.href = info;
+            });
+
+            $("#changeFilter").on('change', function () {
+                var numberOfItems = $(this).val();
+                var info = "{{ Request::url() }}?";
+
+
+                info += 'filter=' + numberOfItems;
+
+                @if( app('request')->input('limit'))
+                        info += '&limit={{app('request')->input('limit')}}';
+                @endif
+                        info += "&page={{$latestProduct->currentPage()}}";
+                window.location.href = info;
+            });
         });
     </script>
-    @endsection
+@endsection
 

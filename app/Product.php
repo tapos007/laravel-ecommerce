@@ -31,4 +31,9 @@ class Product extends Model {
 	{
 		return $this->belongsToMany(File::class,'file_product');
 	}
+
+	public function scopeLatestProduct($query)
+	{
+		return $query->where('active', 1);
+	}
 }
