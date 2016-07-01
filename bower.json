@@ -1,0 +1,20 @@
+{
+  "name": "laravel-ecommerce",
+  "description": "",
+  "main": "",
+  "authors": [
+    "tapos ghosh <biswanath.ghosh@gagagugu.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tapos007/laravel-ecommerce",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "metisMenu": "^2.5.2"
+  }
+}

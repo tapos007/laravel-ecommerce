@@ -18,7 +18,7 @@
 					});
 // Dropdown on Mouseover					
 $('document').ready(function(){
-	
+	$("#menu").metisMenu();
 	<!-- Tooltip -->
 	 $('.tooltip-test').tooltip();
     $('.popover-test').popover();
@@ -81,23 +81,23 @@ $('document').ready(function(){
 	});
 		
 	// Category Menu mobile
-	 $("<select />").appendTo("nav.subnav");
-      
-      // Create default option "Go to..."
-      $("<option />", {
-         "selected": "selected",
-         "value"   : "",
-         "text"    : "Go to..."
-      }).appendTo("nav.subnav select");
-      
-      // Populate dropdown with menu items
-      $("nav.subnav a[href]").each(function() { 
-       var el = $(this);
-       $("<option />", {
-           "value"   : el.attr("href"),
-           "text"    : el.text()
-       }).appendTo("nav.subnav select");
-      });
+	//  $("<select />").appendTo("nav.subnav");
+     //
+     //  // Create default option "Go to..."
+     //  $("<option />", {
+     //     "selected": "selected",
+     //     "value"   : "",
+     //     "text"    : "Go to..."
+     //  }).appendTo("nav.subnav select");
+     //
+     //  // Populate dropdown with menu items
+     //  $("nav.subnav a[href]").each(function() {
+     //   var el = $(this);
+     //   $("<option />", {
+     //       "value"   : el.attr("href"),
+     //       "text"    : el.text()
+     //   }).appendTo("nav.subnav select");
+     //  });
       
 	   // To make dropdown actually work
 	   // To make more unobtrusive: http://css-tricks.com/4064-unobtrusive-page-changer/

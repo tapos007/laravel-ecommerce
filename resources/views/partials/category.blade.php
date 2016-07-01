@@ -1,13 +1,13 @@
 <!-- Sidebar Start-->
 <aside class="col-lg-3">
     <!-- Category-->
-    <div class="sidewidt">
+    <div class="sidebar-nav">
         <h2 class="heading2"><span>Categories</span></h2>
-        <ul class="nav nav-list categories">
+        <ul class="metismenu" id="menu">
             @if(count($categories)>0)
                 @foreach($categories as $category)
                     <li>
-                        <a href="{{route('shop.categories',[$category->id])}}">{{$category->name}}</a>
+                        <a aria-expanded="false" href="{{route('shop.categories',[$category->id])}}">{{$category->name}}<span class="fa arrow fa-fw"></span></a>
                         @if(count($category->children)>0)
                             <ul>
                                 @foreach($category->children as $subCategory)

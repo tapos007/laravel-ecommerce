@@ -42,11 +42,20 @@ class ShopController extends Controller
         return view('shop.products', compact('latestProduct'));
     }
 
-    public function categories($category_id, $subcategory_id = null)
+    public function categories(Request $request,$category_id, $subcategory_id = null)
     {
-       // $product = Product::with(['files', 'tags','categories'])->get();
-          $product = Category::with('products')->categoryproduct($category_id,$subcategory_id)->get();
-        dd($product);
+        $perpage = $request->get('limit', 12);
+        $filter = $request->get('filter', 'title');
+        $latestProduct = Product::whereHas('categories', function ($query) use($category_id,$subcategory_id) {
+            $query->where('categories.parent_id', $category_id);
+            if($subcategory_id!=null){
+                $query->Where('categories.id', $subcategory_id);
+            }
+
+
+
+        })->with('files','tags','categories')->latest($filter)->latest('id')->paginate($perpage);
+        return view('shop.categories', compact('latestProduct'));
     }
 }
 

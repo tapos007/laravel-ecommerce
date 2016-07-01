@@ -6,3 +6,4 @@ Homestead.json
 .env
 cgi-bin
 .idea
+bower_components/

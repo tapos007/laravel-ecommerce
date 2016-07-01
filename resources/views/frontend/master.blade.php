@@ -12,12 +12,14 @@
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap-responsive.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/metisMenu.min.css')}}">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/flexslider.css')}}" type="text/css" media="screen" rel="stylesheet"  />
     <link href="{{asset('css/jquery.fancybox.css')}}" rel="stylesheet">
     <link href="{{asset('css/cloud-zoom.css')}}" rel="stylesheet">
     <link href="{{asset('css/portfolio.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -25,6 +27,7 @@
     <![endif]-->
     <!-- fav -->
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
     @yield('custom_css')
 
 </head>
@@ -248,6 +251,7 @@
 <script type="text/javascript"  src="{{asset('js/jquery.touchSwipe.min.js')}}"></script>
 <script type="text/javascript"  src="{{asset('js/jquery.ba-throttle-debounce.min.js')}}"></script>
 <script src="{{asset('js/jquery.isotope.min.js')}}"></script>
+<script src="{{asset('js/metisMenu.min.js')}}"></script>
 <script defer src="{{asset('js/custom.js')}}"></script>
 @yield('custom_js')
 </body>
