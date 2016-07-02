@@ -63,12 +63,12 @@
                     @if(count($featuredProduct)>0)
                         @foreach($featuredProduct as $product)
                             <li class="col-lg-3 col-sm-6">
-                                <a class="prdocutname" href="product.html">{{$product->title}}</a>
+                                <a class="prdocutname" href="{{route('shop.product',[$product->id])}}">{{$product->title}}</a>
                                 <div class="thumbnail">
-                                    <a href="#"><img  alt="{{$product->title}}"
+                                    <a href="{{route('shop.product',[$product->id])}}"><img  alt="{{$product->title}}"
                                                       src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
                                     <div class="shortlinks">
-                                        <a class="details" href="#">DETAILS</a>
+                                        <a class="details" href="{{route('shop.product',[$product->id])}}">DETAILS</a>
                                         <a class="wishlist" href="#">WISHLIST</a>
                                         <a class="compare" href="#">COMPARE</a>
                                     </div>
@@ -99,12 +99,12 @@
                     @if(count($latestProduct)>0)
                         @foreach($latestProduct as $product)
                             <li class="col-lg-3 col-sm-6">
-                                <a class="prdocutname" href="product.html">{{$product->title}}</a>
+                                <a class="prdocutname" href="{{route('shop.product',[$product->id])}}">{{$product->title}}</a>
                                 <div class="thumbnail">
-                                    <a href="#"><img  alt="{{$product->title}}"
+                                    <a href="{{route('shop.product',[$product->id])}}"><img  alt="{{$product->title}}"
                                                      src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
                                     <div class="shortlinks">
-                                        <a class="details" href="#">DETAILS</a>
+                                        <a class="details" href="{{route('shop.product',[$product->id])}}">DETAILS</a>
                                         <a class="wishlist" href="#">WISHLIST</a>
                                         <a class="compare" href="#">COMPARE</a>
                                     </div>

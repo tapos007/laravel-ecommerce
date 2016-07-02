@@ -19,4 +19,5 @@ Route::group(['prefix' => 'shop'], function()
     Route::get('/featured', ['as' => 'shop.featured','uses' =>'ShopController@featured']);
     Route::get('/product', ['as' => 'shop.products','uses' =>'ShopController@products']);
     Route::get('/categories/{category_id}/{subcategory_id?}', ['as' => 'shop.categories','uses' =>'ShopController@categories']);
+    Route::get('/product/{product_id}', ['as' => 'shop.product','uses' =>'ShopController@product']);
 });

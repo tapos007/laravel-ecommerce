@@ -23,12 +23,12 @@
                 @if(count($latestProduct)>0)
                     @foreach($latestProduct as $product)
                         <li class="col-lg-4 col-sm-6">
-                            <a class="prdocutname" href="product.html">{{$product->title}}</a>
+                            <a class="prdocutname" href="{{route('shop.product',[$product->id])}}">{{$product->title}}</a>
                             <div class="thumbnail">
-                                <a href="#"><img alt="{{$product->title}}"
+                                <a href="{{route('shop.product',[$product->id])}}"><img alt="{{$product->title}}"
                                                  src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
                                 <div class="shortlinks">
-                                    <a class="details" href="#">DETAILS</a>
+                                    <a class="details" href="{{route('shop.product',[$product->id])}}">DETAILS</a>
                                     <a class="wishlist" href="#">WISHLIST</a>
                                     <a class="compare" href="#">COMPARE</a>
                                 </div>
@@ -54,22 +54,13 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-sm-4">
                                         <span class="offer tooltip-test">Offer</span>
-                                        <a href="#"><img alt="{{$product->title}}"
+                                        <a href="{{route('shop.product',[$product->id])}}"><img alt="{{$product->title}}"
                                                          src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
                                     </div>
                                     <div class="col-lg-8 col-sm-8">
                                         <a class="prdocutname"
-                                           href="product.html">{{$product->title}}</a>
-                                        <div class="productdiscrption"> Lorem Ipsum is simply dummy
-                                            text of the printing and typesetting industry. Lorem
-                                            Ipsum has been the industry's standard.<br>
-                                            <br>
-                                            Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the
-                                            industry's standard.
-                                            Lorem Ipsum is simply dummy text of the printing and
-                                            typesetting industry. Lorem Ipsum has been the
-                                            industry's stan
+                                           href="{{route('shop.product',[$product->id])}}">{{$product->title}}</a>
+                                        <div class="productdiscrption">{{ $product->description }}
                                         </div>
                                         <div class="pricetag">
                                             <span class="spiral"></span><a href="#"
@@ -82,7 +73,7 @@
                                             </div>
                                         </div>
                                         <div class="shortlinks">
-                                            <a class="details" href="#">DETAILS</a>
+                                            <a class="details" href="{{route('shop.product',[$product->id])}}">DETAILS</a>
                                             <a class="wishlist" href="#">WISHLIST</a>
                                             <a class="compare" href="#">COMPARE</a>
                                         </div>
