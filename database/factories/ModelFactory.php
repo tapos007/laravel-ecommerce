@@ -43,7 +43,7 @@ $factory->define(App\Tag::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return [
-        'title' => $faker->unique()->sentence(3,false),
+        'title' => $faker->unique()->sentence(2,false),
         'description' => $faker->text(),
         'buying_price' => $faker->randomNumber(2),
         'sell_price' => $faker->randomNumber(3),
