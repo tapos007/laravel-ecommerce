@@ -31,11 +31,11 @@
                         </tr>
                         <tr>
                             <td class="textright"><b>VAT (15%):</b></td>
-                            <td class="textright">${{(preg_replace('/[,]/', '', Cart::subtotal())) * 0.15}}</td>
+                            <td class="textright">${{Cart::tax()}}</td>
                         </tr>
                         <tr>
                             <td class="textright"><b>Total:</b></td>
-                            <td class="textright">${{(preg_replace('/[,]/', '', Cart::subtotal())) * 0.15 + (preg_replace('/[,]/', '', Cart::subtotal()))}}</td>
+                            <td class="textright">${{Cart::total()}}</td>
                         </tr>
                         </tbody>
                     </table>
