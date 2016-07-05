@@ -21,6 +21,7 @@ Route::group(['prefix' => 'shop'], function()
     Route::get('/categories/{category_id}/{subcategory_id?}', ['as' => 'shop.categories','uses' =>'ShopController@categories']);
     Route::get('/product/{product_id}', ['middleware' => 'visited_product','as' => 'shop.product','uses' =>'ShopController@product']);
     Route::get('/wishlist/', ['as' => 'shop.wishlistshow','uses' =>'ShopController@wishlist']);
+    Route::get('/addcard/{product_id}',['as' => 'shop.addcard','uses' =>'ShopController@addcard']);
 
 
     Route::group(['prefix' => 'ajax'], function(){

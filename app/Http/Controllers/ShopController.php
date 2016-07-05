@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Product;
+use Cart;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -21,7 +22,7 @@ class ShopController extends Controller
         $visitedProduct = Product::visitedproduct()->with('files', 'categories', 'tags')->latest()->get();
         $latestProduct = Product::with('files', 'categories', 'tags')->latest()->take(12)->get();
         $featuredProduct = Product::with('files', 'categories', 'tags')->where('featured', 1)->get()->random(12);
-        return view('shop.index', compact('latestProduct', 'featuredProduct','visitedProduct'));
+        return view('shop.index', compact('latestProduct', 'featuredProduct', 'visitedProduct'));
     }
 
     /**
@@ -67,7 +68,7 @@ class ShopController extends Controller
     public function product(Product $product)
     {
         $product_info = $product->first()->load('files', 'categories', 'tags');
-     //   dd($product_info);
+        //   dd($product_info);
         return view('shop.single_product', compact('product_info'));
     }
 
@@ -76,6 +77,20 @@ class ShopController extends Controller
         $latestProduct = Product::wishlistproduct()->with('files', 'categories', 'tags')->latest()->paginate(10);
         return view('shop.wishlist', compact('latestProduct'));
 
+    }
+
+    public function addcard(Product $product_id)
+    {
+        $product = $product_id;
+        //   $rowId = Cart::search(array('id' => $product->id));
+        //  Cart::add(array('id' => $product->id, 'name' => $product->title, 'qty' => 5, 'price' => $product->sell_price));
+
+//        $already_list_product = Cart::search(function ($cartItem) use($product) {
+//            return $cartItem->id == $product->id;
+//        });
+
+        Cart::add(array('id' => $product->id, 'name' => $product->title, 'qty' => 1, 'price' => $product->sell_price));
+        return back();
     }
 }
 
