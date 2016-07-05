@@ -22,27 +22,7 @@
             <ul class="thumbnails grid">
                 @if(count($latestProduct)>0)
                     @foreach($latestProduct as $product)
-                        <li class="col-lg-4 col-sm-6">
-                            <a class="prdocutname" href="{{route('shop.product',[$product->id])}}">{{$product->title}}</a>
-                            <div class="thumbnail">
-                                <a href="{{route('shop.product',[$product->id])}}"><img alt="{{$product->title}}"
-                                                 src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
-                                <div class="shortlinks">
-                                    <a class="details" href="{{route('shop.product',[$product->id])}}">DETAILS</a>
-                                    <a class="wishlist" href="#">WISHLIST</a>
-                                    <a class="compare" href="#">COMPARE</a>
-                                </div>
-                                <div class="pricetag">
-                                    <span class="spiral"></span><a href="#" class="productcart">ADD
-                                        TO CART</a>
-                                    <div class="price">
-                                        <div class="pricenew">${{$product->sell_price}}</div>
-                                        <div class="priceold"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
+                        @include('partials.single_product', ['product' => $product,'class'=>'col-lg-4 col-sm-6'])
                     @endforeach
                 @endif
             </ul>

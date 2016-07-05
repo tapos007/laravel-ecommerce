@@ -62,26 +62,7 @@
                 <ul class="thumbnails">
                     @if(count($featuredProduct)>0)
                         @foreach($featuredProduct as $product)
-                            <li class="col-lg-3 col-sm-6">
-                                <a class="prdocutname" href="{{route('shop.product',[$product->id])}}">{{$product->title}}</a>
-                                <div class="thumbnail">
-                                    <a href="{{route('shop.product',[$product->id])}}"><img  alt="{{$product->title}}"
-                                                      src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
-                                    <div class="shortlinks">
-                                        <a class="details" href="{{route('shop.product',[$product->id])}}">DETAILS</a>
-                                        <a class="wishlist" href="#">WISHLIST</a>
-                                        <a class="compare" href="#">COMPARE</a>
-                                    </div>
-                                    <div class="pricetag">
-                                        <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
-                                        <div class="price">
-                                            <div class="pricenew">${{$product->sell_price}}</div>
-                                            <div class="priceold"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-
+                            @include('partials.single_product', ['product' => $product,'class'=>'col-lg-3 col-sm-6'])
                         @endforeach
                     @endif
 
@@ -98,25 +79,7 @@
                 <ul class="thumbnails">
                     @if(count($latestProduct)>0)
                         @foreach($latestProduct as $product)
-                            <li class="col-lg-3 col-sm-6">
-                                <a class="prdocutname" href="{{route('shop.product',[$product->id])}}">{{$product->title}}</a>
-                                <div class="thumbnail">
-                                    <a href="{{route('shop.product',[$product->id])}}"><img  alt="{{$product->title}}"
-                                                     src="{{asset('images/thurmb_image/'.$product->files[0]->thurm_url)}}"></a>
-                                    <div class="shortlinks">
-                                        <a class="details" href="{{route('shop.product',[$product->id])}}">DETAILS</a>
-                                        <a class="wishlist" href="#">WISHLIST</a>
-                                        <a class="compare" href="#">COMPARE</a>
-                                    </div>
-                                    <div class="pricetag">
-                                        <span class="spiral"></span><a href="#" class="productcart">ADD TO CART</a>
-                                        <div class="price">
-                                            <div class="pricenew">${{$product->sell_price}}</div>
-                                            <div class="priceold"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            @include('partials.single_product', ['product' => $product,'class'=>'col-lg-3 col-sm-6'])
 
                         @endforeach
                     @endif
@@ -126,7 +89,26 @@
             </div>
         </section>
 
-        <!-- Section  Banner Start-->
+
+        <!-- Featured Product-->
+        @if(count($visitedProduct)>0)
+            <section id="visitedProduct" class="row mt40">
+                <div class="container">
+                    <h1 class="heading1"><span class="maintext">Visited Products</span><span class="subtext"> See Our Most Visited Products</span>
+                    </h1>
+                    <ul class="thumbnails">
+
+                        @foreach($visitedProduct as $product)
+                            @include('partials.single_product', ['product' => $product,'class'=>'col-lg-3 col-sm-6'])
+
+                        @endforeach
+
+
+                    </ul>
+                </div>
+            </section>
+    @endif
+    <!-- Section  Banner Start-->
         <section class="container smbanner">
             <div class="row">
                 <div class="col-lg-3 col-sm-6"><a href="#"><img src="img/smbanner.jpg" alt="" title=""></a>

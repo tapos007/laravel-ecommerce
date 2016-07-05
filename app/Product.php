@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Cookie;
 
 class Product extends Model {
 
@@ -35,5 +36,15 @@ class Product extends Model {
 	public function scopeLatestProduct($query)
 	{
 		return $query->where('active', 1);
+	}
+
+	public function scopeVisitedProduct($query)
+	{
+		return $query->whereIn('id', Cookie::get('visited_product'));
+	}
+	
+	public function scopeWishlistProduct($query)
+	{
+		return $query->whereIn('id', Cookie::get('wishlist_product'));
 	}
 }

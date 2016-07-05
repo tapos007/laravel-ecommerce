@@ -18,11 +18,10 @@ class ShopController extends Controller
      */
     public function index()
     {
-
+        $visitedProduct = Product::visitedproduct()->with('files', 'categories', 'tags')->latest()->get();
         $latestProduct = Product::with('files', 'categories', 'tags')->latest()->take(12)->get();
         $featuredProduct = Product::with('files', 'categories', 'tags')->where('featured', 1)->get()->random(12);
-
-        return view('shop.index', compact('latestProduct', 'featuredProduct'));
+        return view('shop.index', compact('latestProduct', 'featuredProduct','visitedProduct'));
     }
 
     /**
@@ -70,6 +69,13 @@ class ShopController extends Controller
         $product_info = $product->first()->load('files', 'categories', 'tags');
      //   dd($product_info);
         return view('shop.single_product', compact('product_info'));
+    }
+
+    public function wishlist()
+    {
+        $latestProduct = Product::wishlistproduct()->with('files', 'categories', 'tags')->latest()->paginate(10);
+        return view('shop.wishlist', compact('latestProduct'));
+
     }
 }
 

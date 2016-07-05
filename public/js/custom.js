@@ -19,6 +19,25 @@
 // Dropdown on Mouseover					
 $('document').ready(function(){
 	$("#menu").metisMenu();
+	$(".mywishlist").on('click',function (e) {
+        e.preventDefault();
+        var info = $(this);
+        var link = info.data('link');
+        var id = info.data('id');
+
+        $.ajax({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            type: "POST",
+            url: link,
+            data: {id: id},
+            success: function( msg ) {
+                $.notify("I'm to the right of this box","success",
+                    { position:"bottom right" });
+            }
+        });
+
+
+	});
 	<!-- Tooltip -->
 	 $('.tooltip-test').tooltip();
     $('.popover-test').popover();

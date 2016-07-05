@@ -158,6 +158,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
+        \Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class
 
     ],
 
@@ -207,6 +208,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Cart' => \Gloudemans\Shoppingcart\Facades\Cart::class,
 
     ],
 

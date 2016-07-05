@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=100" >
+    <meta name="csrf-token" content="<?php echo csrf_token() ?>"/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
@@ -137,6 +138,7 @@
                     <li><a class="active"  href="/">Home</a></li>
                     <li><a href="{{route('shop.products')}}">Products</a></li>
                     <li><a href="{{route('shop.featured')}}">Featured</a></li>
+                    <li><a href="{{route('shop.wishlistshow')}}">Wishlist</a></li>
                     <li><a href="myaccount.html">My Account & other</a>
                         <div>
                             <ul>
@@ -149,7 +151,6 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="features.html">Features</a> </li>
                 </ul>
             </nav>
         </div>
@@ -252,6 +253,7 @@
 <script type="text/javascript"  src="{{asset('js/jquery.ba-throttle-debounce.min.js')}}"></script>
 <script src="{{asset('js/jquery.isotope.min.js')}}"></script>
 <script src="{{asset('js/metisMenu.min.js')}}"></script>
+<script src="{{asset('js/notify.min.js')}}"></script>
 <script defer src="{{asset('js/custom.js')}}"></script>
 @yield('custom_js')
 </body>

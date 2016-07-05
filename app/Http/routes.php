@@ -20,4 +20,11 @@ Route::group(['prefix' => 'shop'], function()
     Route::get('/product', ['as' => 'shop.products','uses' =>'ShopController@products']);
     Route::get('/categories/{category_id}/{subcategory_id?}', ['as' => 'shop.categories','uses' =>'ShopController@categories']);
     Route::get('/product/{product_id}', ['middleware' => 'visited_product','as' => 'shop.product','uses' =>'ShopController@product']);
+    Route::get('/wishlist/', ['as' => 'shop.wishlistshow','uses' =>'ShopController@wishlist']);
+
+
+    Route::group(['prefix' => 'ajax'], function(){
+        Route::post('/wishlist', ['as' => 'shop.ajax.wishlist','uses' =>'AjaxRequestController@addwishlist']);
+    });
+
 });
