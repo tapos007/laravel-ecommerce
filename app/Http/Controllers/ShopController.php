@@ -85,12 +85,13 @@ class ShopController extends Controller
         //   $rowId = Cart::search(array('id' => $product->id));
         //  Cart::add(array('id' => $product->id, 'name' => $product->title, 'qty' => 5, 'price' => $product->sell_price));
 
-//        $already_list_product = Cart::search(function ($cartItem) use($product) {
-//            return $cartItem->id == $product->id;
-//        });
-
         Cart::add(array('id' => $product->id, 'name' => $product->title, 'qty' => 1, 'price' => $product->sell_price));
         return back();
+    }
+
+    public function cart()
+    {
+        return view('shop.cart');
     }
 }
 

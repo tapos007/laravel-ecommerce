@@ -93,6 +93,7 @@
                     <li><a href="{{route('shop.products')}}">Products</a></li>
                     <li><a href="{{route('shop.featured')}}">Featured</a></li>
                     <li><a href="{{route('shop.wishlistshow')}}">Wishlist</a></li>
+                    <li><a href="{{route('shop.card')}}">Shopping Cart</a></li>
                     <li><a href="myaccount.html">My Account & other</a>
                         <div>
                             <ul>

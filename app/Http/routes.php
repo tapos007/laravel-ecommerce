@@ -22,10 +22,14 @@ Route::group(['prefix' => 'shop'], function()
     Route::get('/product/{product_id}', ['middleware' => 'visited_product','as' => 'shop.product','uses' =>'ShopController@product']);
     Route::get('/wishlist/', ['as' => 'shop.wishlistshow','uses' =>'ShopController@wishlist']);
     Route::get('/addcard/{product_id}',['as' => 'shop.addcard','uses' =>'ShopController@addcard']);
+    Route::get('/cart',['as' => 'shop.card','uses' =>'ShopController@cart']);
 
 
     Route::group(['prefix' => 'ajax'], function(){
         Route::post('/wishlist', ['as' => 'shop.ajax.wishlist','uses' =>'AjaxRequestController@addwishlist']);
+        Route::get('/cart', ['as' => 'shop.ajax.cart','uses' =>'AjaxRequestController@showCart']);
+        Route::delete('/cart/{product_id?}', ['as' => 'shop.ajax.cartdelete','uses' =>'AjaxRequestController@productDelete']);
+        Route::put('/cart/{product_id?}', ['as' => 'shop.ajax.cartupdate','uses' =>'AjaxRequestController@productUpdate']);
     });
 
 });
