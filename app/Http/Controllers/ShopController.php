@@ -91,6 +91,7 @@ class ShopController extends Controller
 
     public function cart()
     {
+        //jhjhj
         return view('shop.cart');
     }
 }
